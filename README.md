@@ -2,7 +2,7 @@
 
 This repository contains the exercices for the robotics class at XXXX, 20YY.
 The exercices are organized by notebook. Each notebook corresponds to one chapter of the class.
-The notebooks are in Python and based on the software [Pinocchio](https://github.com/stack-of-tasks/pinocchio).
+The notebooks are in Python and based on the software [Pinocchio](https://github.com/Unity-Billal-mesloub/pinocchio).
 
 ## Getting started
 
