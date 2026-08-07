@@ -13,9 +13,9 @@ We define here 4 main environments that are tested in the __main__:
 
 import pinocchio as pin
 import numpy as np
-from tp6.models.pendulum import createPendulum
-from tp6.env_abstract import EnvPinocchio
-import tp6.env_abstract as env_abstract
+from tp7.models.pendulum import createPendulum
+from tp7.env_abstract import EnvPinocchio
+import tp7.env_abstract as env_abstract
 
 # --- PENDULUM ND CONTINUOUS --------------------------------------------------------------------
 # --- PENDULUM ND CONTINUOUS --------------------------------------------------------------------

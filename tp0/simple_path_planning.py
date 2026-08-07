@@ -55,7 +55,8 @@ def qrand(check=False):
     '''
     while True:
         q = np.random.rand(2)*6.4-3.2  # sample between -3.2 and +3.2.
-        if not check or not coll(q): return q
+        if not check or not coll(q):
+            return q
 # %end_jupyter_snippet
 
 # %jupyter_snippet colldist
@@ -102,7 +103,6 @@ def randomDescent(q0 = None):
                viz.display(q)                       # ... display it
                time.sleep(5e-3)                     # ... and sleep for a short while
      return hist
-randomDescent();
 # %end_jupyter_snippet
 
 ################################################################################
@@ -173,23 +173,27 @@ plt.plot(traj[:,0],traj[:,1],'r',lw=5)
 
 # %jupyter_snippet optim
 def cost(q):
-     '''
-     Cost function: distance to the target
-     '''
-     return dist(q)**2
-     
+    """
+    Cost function: distance to the target.
+    """
+    return dist(q) ** 2
+
+
 def constraint(q):
-     '''
-     Constraint function: distance to the obstacle should be positive.
-     '''
-     return collisionDistance(q)
-     
+    """
+    Constraint function: distance to the obstacle should be strictly positive.
+    """
+    min_collision_dist = 0.01  # [m]
+    return collisionDistance(q) - min_collision_dist
+
+
 def callback(q):
-     '''
-     At each optimization step, display the robot configuration in gepetto-viewer.
-     '''
-     viz.display(q)
-     time.sleep(.01)
+    """
+    At each optimization step, display the robot configuration.
+    """
+    viz.display(q)
+    time.sleep(0.01)
+
 
 def optimize():
      '''

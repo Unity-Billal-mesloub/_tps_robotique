@@ -3,7 +3,7 @@ Base (abstract) class for environments.
 '''
 import numpy as np
 import time
-from tp6.discretization import VectorDiscretization
+from tp7.discretization import VectorDiscretization
 
 def scalarOrArrayToArray(x,nx):
     return x if isinstance(x,np.ndarray) else np.array([x,]*nx,np.float64)

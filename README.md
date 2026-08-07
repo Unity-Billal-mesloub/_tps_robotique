@@ -1,87 +1,63 @@
-﻿# Supaero robotics, 2022
+# Robotic course, XXXX, 20YY
 
-This repository contains the exercices for the robotics class at Supaero, 2022.
+This repository contains the exercices for the robotics class at XXXX, 20YY.
 The exercices are organized by notebook. Each notebook corresponds to one chapter of the class.
 The notebooks are in Python and based on the software [Pinocchio](https://github.com/stack-of-tasks/pinocchio).
 
-## Set up
+## Getting started
 
-### Linux, Python 3, PyPI
+### Clone this repository
 
-On a Linux system with Python 3, you can get the dependencies directly with +[pip (see installation procedure and update below)](#installing-pip):
-```bash
-python3 -m pip install -r requirements.txt
-```
-
-
-NB: you should consider using a [virtualenv](https://docs.python.org/3/library/venv.html)
-
-Once you have the dependencies, you can start the server with `jupyter notebook`
-
-### Docker
-
-On other systems, use use the virtualization provided by +Docker. A Docker image is provided, and can be started with:
+Using Git via SSH:
 
 ```bash
-sudo docker run --rm -p 7000:7000 -p 7001:7001 -p 7002:7002 -p 7003:7003 -p 7004:7004 -p 8888:8888 -v data:/home/user/tp -it gepetto/supaero
+git clone git@github.com:ymontmarin/XXXX_20YY_tps_robotic.git
 ```
 
-On Linux host systems, you may simply start the Docker with:
+Or via HTTPS:
 
 ```bash
-sudo docker run --rm --net host -v data:/home/user/tp -it gepetto/supaero
+git clone https://github.com/ymontmarin/XXXX_20YY_tps_robotic.git
 ```
 
-In case of big update, you must update the docker:
-```bash
-sudo docker pull gepetto/supaero
-```
+### Install miniconda
 
-### Update the notebooks
+- Linux: https://docs.conda.io/en/latest/miniconda.html
+- macOS: https://docs.conda.io/en/latest/miniconda.html
+- Windows: https://www.anaconda.com/download/
 
-If the repository changes (for example when new tutorials are pushes), you need to update your local
-version by "pulling" it from the repository.
-On a native installation, just go in the folder containing the tutorials and execute ```git pull```
+Only a little snippet is applied to your home .bashrc, everything else will be segmented!
 
-With a docker, execute the following:
-```bash
-sudo docker run --rm -v data:/home/user/tp -it gepetto/supaero  git remote set-url origin https://github.com/gepetto/supaero2022
-```
-Then
-```bash
-sudo docker run --rm -v data:/home/user/tp -it gepetto/supaero  git pull --rebase origin main
-```
+### Run a notebook
 
-To avoid conflict when pulling a new version, you should better to your modifications in copy of the original files,
-not directly in the original files itself.
-
-## Side notes
-
-### Installing pip
-
-Pip is a tool for installing and managing Python packages. You can install it with
+- Go to your local copy of the repository.
+- Open a terminal.
+- Create the conda environment:
 
 ```bash
-sudo apt install python3-pip
+conda env create -f robotics_course_env.yml
 ```
 
-The default version of +pip installed by +apt is not up to date, so upgrade it with
-```bash
-python3 -m pip install --upgrade --user
-```
-
-In general, running +pip is likely to run an alias on +pip in /usr, so either run it through python3 as explained above, or make sure your path select the right pip executable in your ~/.local. The option --user is kind of optional for recent +pip version, but removing it should work with a warning.
-
-### Installing docker
-
-On linux, install docker with +apt (or see https://docs.docker.com/engine/install/ubuntu/).
+From there on, to work on a tutorial notebook, you only need to activate the environment:
 
 ```bash
-sudo apt install docker.io
+conda activate robotics_course
 ```
-On other OS, see [how to get Docker](https://docs.docker.com/get-docker/).
 
+Then launch the notebook with:
 
-# Join me on \[Matrix\]
+```bash
+jupyter-lab
+```
 
-[\[Matrix\]](https://matrix.org/) is a distributed chat system that will be used during the class. Consider [creating an account](https://app.element.io/#/register) and join [the classroom channel](https://matrix.to/#/#supaero-robotics-2022:laas.fr).
+The notebook will be accessible from your web browser at [localhost:8888](http://localhost:8888).
+
+Meshcat visualisation can be access in full page in `localhost:700N/static/` where N denotes the Nth meshcat instance created with the running kernel.
+
+## Updating the notebooks
+
+If the repository changes (for instance when new tutorials are pushed) you will need to update your local copy of it by "pulling" from the repository. To do so, go to the directory containing the tutorials and run:
+
+```
+git pull
+```
